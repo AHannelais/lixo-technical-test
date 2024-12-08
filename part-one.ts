@@ -5,12 +5,12 @@ type findAvailableTable = (tables: boolean[]) => number;
 
 // Sync function
 function findAvailableTable(tables: boolean[]): number {
-  return tables.findIndex((table) => !table);
+  return tables.findIndex((table) => !!table);
 }
 
 // Async function
 async function findAvailableTableAsync(tables: boolean[]): Promise<number> {
   return new Promise((resolve) => {
-    resolve(findAvailableTable(tables));
+    resolve(tables.findIndex((table) => !!table));
   });
 }
